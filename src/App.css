@@ -15,3 +15,31 @@
   outline: 0px solid black;
   outline-offset:0px;
 }
+
+.mainImage{
+  grid-column-gap: var(--column-gutter);
+  align-items: start;
+  display: grid;
+  grid-template-columns: repeat(var(--columns),minmax(0,1fr));
+  --column-gutter: 0px;
+  --columns: 3;
+}
+
+.imageItem{
+  display: grid;
+  grid-template-columns: minmax(0,1fr);
+  row-gap: var(--row-gutter);
+  --row-gutter: 4px;
+}
+
+.imageMain{
+  display: block;
+  padding-block-start: 5px;
+  padding-block-end: 5px;
+  padding-inline-start: 5px;
+  padding-inline-end: 5px;
+}
+
+.inputSearch{
+  width: 40vw;
+}

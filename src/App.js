@@ -5,6 +5,13 @@ import Header from './components/Header';
 import Home from './components/Home';
 import LoadingBar from 'react-top-loading-bar'
 import SearchedComponent from './components/SearchedComponent';
+import {
+  Routes,
+  Route,
+} from "react-router-dom";
+import Explore from './components/Explore';
+import Advertise from './components/Advertise';
+import Blog from './components/Blog';
 
 
 function App() {
@@ -50,14 +57,20 @@ function App() {
       />
       <div>
 
+      </div>
+     <Routes>
+     <Route path="/" element={<div>
         {!showvalue ? <Home setProgress={setProgress} /> : <SearchedComponent
           value={value}
           results={results}
           setResults={setResults}
           showvalue={showvalue}
         />}
-
-      </div>
+        </div>} />
+      <Route path="/explore" element={<Explore />} />
+      <Route path="/advertise" element={<Advertise />} />
+      <Route path="/blog" element={<Blog />} />
+    </Routes>
 
     </div>
   );
