@@ -38,7 +38,6 @@ const getItems = () => {
 //           : currentSelected.concat(id)
 //       );
 //     };
-console.log(items,"items")
 
   return (
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
@@ -78,7 +77,6 @@ function Item({ onClick, fetchImageData, title, setValue }) {
 
     const setValueFunc =(title)=>{
         setValue(title)
-        fetchImageData(title)
     }
   return (
       <button className="item h-4 p-3 text-lg hover:text-black focused:border-b-2 border-black inline-block whitespace-nowrap " style={{
