@@ -42,8 +42,9 @@ console.log(items,"items")
 
   return (
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
-      {items.map((item) => (
+      {items.map((item,index) => (
         <Item
+        key={index}
           title={item.title}
           setValue={setValue}
         />
