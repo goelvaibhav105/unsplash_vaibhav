@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
-import Spinner from './Spinner';
+import Spinner from '../commons/Spinner';
 import InfiniteScroll from "react-infinite-scroll-component";
-import Banner from './Banner';
+import Banner from '../Banner';
 
 const Home = (props) => {
     const [homeResult, setHomeResult] = useState([])

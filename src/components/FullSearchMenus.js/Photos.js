@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react'
-import Spinner from '../Spinner';
+import Spinner from '../commons/Spinner';
 
 export default function Photos({showValue,rowOne,rowTwo,rowThree,loading}) {
     const [items, setItems] = React.useState([]);

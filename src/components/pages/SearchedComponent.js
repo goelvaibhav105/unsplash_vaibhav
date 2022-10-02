@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
-import FullSearch from './FullSearch';
+import FullSearch from '../FullSearch';
 
 export default function SearchedComponent({ 
     value,

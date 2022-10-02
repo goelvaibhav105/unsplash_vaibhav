@@ -2,15 +2,15 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
-import Home from './components/Home';
+import Home from './components/pages/Home';
 import LoadingBar from 'react-top-loading-bar'
-import SearchedComponent from './components/SearchedComponent';
+import SearchedComponent from './components/pages/SearchedComponent';
 import {
   Routes,
   Route,
 } from "react-router-dom";
-import Explore from './components/Explore';
-import Advertise from './components/Advertise';
+import Explore from './components/pages/Explore';
+import Advertise from './components/pages/Advertise';
 import Blog from './components/Blog';
 
 

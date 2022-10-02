@@ -1,5 +1,5 @@
 import React from 'react'
-import Spinner from '../Spinner'
+import Spinner from '../commons/Spinner'
 import './collections.css'
 
 export default function Collections({ collections ,loading}) {

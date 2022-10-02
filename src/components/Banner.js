@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Spinner from './Spinner'
+import Spinner from './commons/Spinner'
 
 export default function Banner() {
     const [loading, setLoading] = useState(true)
