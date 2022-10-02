@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 
-import Spinner from './Spinner';
-import InfiniteScroll from "react-infinite-scroll-component";
 
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
@@ -64,12 +62,13 @@ export default function FullSearch({showvalue}) {
 
     const fetchPhotos = () => {
         setLoading(true)
-        fetch(`https://api.unsplash.com/photos/?client_id=UwHPV-3b3eHF0eq1T8jZftTABLZbr09xy0pHsvqjcQI&query=${showvalue}&per_page=30`)
+        fetch(`https://api.unsplash.com/search/photos/?client_id=UwHPV-3b3eHF0eq1T8jZftTABLZbr09xy0pHsvqjcQI&query=${showvalue}&orientation=squarish&per_page=30`)
             .then(res => res.json())
             .then(data => {
-                const row1 = data.slice(0,10)
-                const row2 = data.slice(10,20)
-                const row3 = data.slice(20,30)
+                const array = data.results
+                const row1 = array.slice(0,10)
+                const row2 = array.slice(10,20)
+                const row3 = array.slice(20,30)
                 setRowOne(row1)
                 setRowTwo(row2)
                 setRowThree(row3)
@@ -112,13 +111,13 @@ export default function FullSearch({showvalue}) {
    
     </ButtonGroup>
 
-    {submenu === 1 && <Photos showValue={showvalue} rowOne={rowOne} rowTwo={rowTwo} rowThree={rowThree}/>
+    {submenu === 1 && <Photos showValue={showvalue} rowOne={rowOne} rowTwo={rowTwo} rowThree={rowThree} loading={loading}/>
 
    }
-   {submenu === 2 && <Collections collections={collections}/>
+   {submenu === 2 && <Collections collections={collections} loading={loading}/>
 
    }
-   {submenu === 3 && <Users users={users}/>
+   {submenu === 3 && <Users users={users} loading={loading}/>
 
    }
     </div>

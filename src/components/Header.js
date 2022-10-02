@@ -22,6 +22,10 @@ export default function Header({handleKeyDown,clearData,setValue,value,fetchImag
     // eslint-disable-next-line
 }, [])
 
+const onButtonCLick = (value) =>{
+   setValue(value);
+   setIsFocus(false)
+}
 
 
   return (
@@ -32,16 +36,16 @@ export default function Header({handleKeyDown,clearData,setValue,value,fetchImag
       </Link>
       <div className='bg-[#f5f5f5] flex content-center items-center px-2 mx-1 rounded-3xl'>
         <SearchIcon fontSize="medium" color="red" />
-        <input onKeyDown={handleKeyDown} onFocus={()=>{setIsFocus(true)}} onBlur={()=>{setIsFocus(false)}} type={"text"} placeholder="Search free high-resolution photos" className='h-10 p-3 mx-0  bg-[#f5f5f5] inputSearch' value={value} onChange={(e) => { setValue(e.target.value) }} />
+        <input onKeyDown={handleKeyDown} onFocus={()=>{setIsFocus(true)}}  type={"text"} placeholder="Search free high-resolution photos" className='h-10 p-3 mx-0  bg-[#f5f5f5] inputSearch' value={value} onChange={(e) => { setValue(e.target.value) }} />
         {value ?
           <ClearIcon onClick={clearData} fontSize="small" className="mr-2 cursor-pointer" /> : <div className='w-7 h-7'></div>
         }
       </div>
       {isFocus && 
-        <div className='w-[45vw] h-[30vw] absolute left-20 top-16 bg-white rounded-r-md shadow-md z-50 pt-5 p-5'>
+        <div onBlur={()=>{setIsFocus(false)}} className='w-[45vw] h-[30vw] absolute left-20 top-16 bg-white rounded-r-md shadow-md z-50 pt-5 p-5'>
           <h1 className='text-black'>Trending Searches</h1>
           {results && results.map((result,index)=>{
-            return <Button onClick={()=>{setValue(result.title)}} onFocus={()=>{setIsFocus(true)}} className='border-l-gray-600 p-2 mt-10 hover:text-black' style={{textTransform:"capitalize",color:"grey",backgroundColor:"#fff"}}>{result.title}</Button>
+            return <Button onClick={()=>onButtonCLick(result.title)} onFocus={()=>{setIsFocus(true)}} className='border-l-gray-600 p-2 mt-10 hover:text-black' style={{textTransform:"capitalize",color:"grey",backgroundColor:"#fff"}}>{result.title}</Button>
           })}
         </div>
       }

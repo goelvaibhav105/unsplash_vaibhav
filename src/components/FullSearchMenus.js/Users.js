@@ -1,6 +1,10 @@
 import React from 'react'
+import Spinner from '../Spinner';
 
-export default function Users({users}) {
+export default function Users({users,loading}) {
+  if(loading){
+    return <Spinner/>
+}
   return (
     <div className='flex flex-row flex-wrap'>{users && users.map((user,index) => {
         const profileImage = user.profile_image.large;
@@ -8,11 +12,11 @@ export default function Users({users}) {
         const bio = user.bio;
         const location = user.location;
         const instaUserName = user.social.instagram_username ?'@' +  user.social.instagram_username: 'No Social ';
-        return ( <div key={index} className="w-[50%]  ">
-        <div className="border-r border-b border-l h-[100%]  border-gray-400 lg:border-l-0 w-[50%]   lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 mb-1 flex flex-col justify-between leading-normal">
+        return ( <div key={index} className="w-[40vw] mr-2  ">
+        <div className="border-r border-b border-l w-[50vw] h-[250px] m-10 mr-5 border-gray-400 lg:border-l-0  lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 mb-1 flex flex-col justify-between leading-normal">
           <div className="mb-8">
             <p className="text-sm text-gray-600 flex items-center">
-              {name}
+             {index+1}. {name}
             </p>
             <div className="text-gray-900 font-bold text-xl mb-2">{location}</div>
             <p className="text-gray-700 text-base">{bio}</p>

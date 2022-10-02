@@ -1,7 +1,11 @@
 import React from 'react'
+import Spinner from '../Spinner'
 import './collections.css'
 
-export default function Collections({ collections }) {
+export default function Collections({ collections ,loading}) {
+    if(loading){
+        return <Spinner/>
+    }
     return (
         <div className='flex-row flex flex-wrap justify-center text-center'>
 

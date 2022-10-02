@@ -47,6 +47,14 @@ function App() {
     // eslint-disable-next-line
 }, [value])
 
+    
+useEffect(() => {
+  setShowValue(value)
+  // eslint-disable-next-line
+}, [value])
+
+
+
   return (
 
     <div className="App">
