@@ -36,8 +36,16 @@ function App() {
     if (event.key === 'Enter' && value) {
       fetchImageData()
       setShowValue(value)
+    }else{
+      fetchImageData()
     }
   };
+
+    
+  useEffect(() => {
+    fetchImageData(); 
+    // eslint-disable-next-line
+}, [value])
 
   return (
 
@@ -60,7 +68,7 @@ function App() {
       </div>
      <Routes>
      <Route path="/" element={<div>
-        {!showvalue ? <Home setProgress={setProgress} /> : <SearchedComponent
+        {!(showvalue || value) ? <Home setProgress={setProgress} /> : <SearchedComponent
           value={value}
           results={results}
           setResults={setResults}

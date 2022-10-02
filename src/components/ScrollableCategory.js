@@ -8,6 +8,7 @@ function ScrollableCategory({setValue,fetchImageData}) {
   const [items, setItems] = React.useState([]);
   const [selected, setSelected] = React.useState([]);
   const [position, setPosition] = React.useState(0);
+  console.log(fetchImageData,"fetchImageData")
 
 
   
@@ -23,6 +24,11 @@ const getItems = () => {
   useEffect(() => {
     getItems(); 
     // eslint-disable-next-line
+}, [])
+
+useEffect(() => {
+  fetchImageData(); 
+  // eslint-disable-next-line
 }, [])
 
 //   const isItemSelected = (id) => !!selected.find((el) => el === id);
