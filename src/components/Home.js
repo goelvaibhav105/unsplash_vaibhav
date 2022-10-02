@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import Spinner from './Spinner';
 import InfiniteScroll from "react-infinite-scroll-component";
+import Banner from './Banner';
 
 const Home = (props) => {
     const [homeResult, setHomeResult] = useState([])
@@ -61,6 +62,9 @@ const Home = (props) => {
         <>
             <div className='flex justify-center items-center  border-box'>
                 {loading && <Spinner />}
+            </div>
+            <div>
+                <Banner/>
             </div>
             <InfiniteScroll
                 dataLength={homeResult && homeResult.length}
